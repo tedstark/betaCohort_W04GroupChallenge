@@ -28,6 +28,7 @@
             </Label>
         </VBox>
     </HBox>
+
     <HBox alignment="TOP_RIGHT" GridPane.rowIndex="2">
         <VBox alignment="TOP_RIGHT" prefWidth="100" GridPane.columnIndex="0">
             <Label text="Inventory:">
@@ -48,11 +49,11 @@
                 <font>
                     <Font size="18.0" />
                 </font></Label>
-            <Text fx:id="invApples" text="0">
+            <Text fx:id="textApples" text="0">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
-            <Text fx:id="priceAvgApples" text="">
+            <Text fx:id="textAvgApples" text="">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
@@ -62,11 +63,11 @@
                 <font>
                     <Font size="18.0" />
                 </font></Label>
-            <Text fx:id="invOranges" text="0">
+            <Text fx:id="textOranges" text="0">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
-            <Text fx:id="priceAvgOranges" text="">
+            <Text fx:id="textAvgOranges" text="">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
@@ -76,11 +77,11 @@
                 <font>
                     <Font size="18.0" />
                 </font></Label>
-            <Text fx:id="invBananas" text="0">
+            <Text fx:id="textBananas" text="0">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
-            <Text fx:id="priceAvgBananas" text="">
+            <Text fx:id="textAvgBananas" text="">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
@@ -90,19 +91,20 @@
                 <font>
                     <Font size="18.0" />
                 </font></Label>
-            <Text fx:id="invGrapes" text="0">
+            <Text fx:id="textGrapes" text="0">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
-            <Text fx:id="priceAvgGrapes" text="">
+            <Text fx:id="textAvgGrapes" text="">
                 <font>
                     <Font size="16.0" />
                 </font></Text>
         </VBox>
     </HBox>
-    <HBox GridPane.rowIndex="3">
 
+    <HBox GridPane.rowIndex="3">
     </HBox>
+
     <HBox alignment="TOP_RIGHT" GridPane.rowIndex="4">
         <VBox alignment="TOP_RIGHT" prefWidth="350.0" GridPane.columnIndex="0">
             <Label text="Total Trader Cash: $">
@@ -111,7 +113,7 @@
             </font></Label>
         </VBox>
         <VBox alignment="CENTER_RIGHT" prefWidth="75.0" GridPane.columnIndex="1">
-            <Text text="0.00" fx:id="traderCash">
+            <Text text="0.00" fx:id="textCash">
             <font>
                <Font size="18.0" />
             </font></Text>
@@ -177,7 +179,7 @@
             <Button onAction="#buyApples" fx:id="btnBuyApples" text="Buy Apples" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button fx:id="btnBuyOranges" text="Buy Oranges" />
+            <Button onAction="#buyOranges" text="Buy Oranges" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
             <Button fx:id="btnBuyBananas" text="Buy Bananas" />
@@ -189,7 +191,7 @@
 
     <HBox alignment="TOP_CENTER" spacing="50" GridPane.rowIndex="14">
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button fx:id="btnSellApples" text="Sell Apples" />
+            <Button onAction="#sellApples" fx:id="btnSellApples" text="Sell Apples" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
             <Button fx:id="btnSellOranges" text="Sell Oranges" />
@@ -201,6 +203,7 @@
             <Button fx:id="btnSellGrapes" text="Sell Grapes" />
         </VBox>
     </HBox>
+
     <HBox alignment="TOP_CENTER" spacing="50" GridPane.rowIndex="16">
         <Text fx:id="feedbackText" text="Please click a button to Buy/Sell a commodity.">
             <font>

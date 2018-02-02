@@ -8,26 +8,32 @@ import javafx.scene.text.Text;
 
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
 
+    //trader info fields
     @FXML
-    public Text invApples;
+    public Text textApples;
     @FXML
-    public Text invOranges;
+    public Text textOranges;
     @FXML
-    public Text invBananas;
+    public Text textBananas;
     @FXML
-    public Text invGrapes;
+    public Text textGrapes;
     @FXML
-    public Text priceAvgApples;
+    public Text textAvgApples;
     @FXML
-    public Text priceAvgOranges;
+    public Text textAvgOranges;
     @FXML
-    public Text priceAvgBananas;
+    public Text textAvgBananas;
     @FXML
-    public Text priceAvgGrapes;
+    public Text textAvgGrapes;
+    @FXML
+    public Text textCash;
+
+    //market info fields
     @FXML
     public Text priceApples;
     @FXML
@@ -38,37 +44,45 @@ public class Controller implements Initializable{
     public Text priceGrapes;
     @FXML
     public Text feedbackText;
-    @FXML
-    public Text traderCash;
 
-    Player traderJoe = new Player(100,0,0,0,0);
-    Market fruitMarket = new Market(1,1,1,1);
+    //class fields
+    Player trader;
+    Market market;
+
+    DecimalFormat money = new DecimalFormat("0.00");
+    public double startingCash = 100;
+    public int startingInv = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        trader = new Player(startingCash,startingInv,startingInv,startingInv,startingInv);
+        market = new Market();
+        setPricesAndCash();
     }
 
-//    public void updateInventory(){
-//        invApples.setText());
-//        invOranges.setText(countOranges);
-//        invBananas.setText(countBananas);
-//        invGrapes.setText(countGrapes);
-//    }
-
+    public void setPricesAndCash(){
+        textCash.setText(money.format(trader.cash));
+        priceApples.setText("$"+ money.format(market.priceApples));
+        priceOranges.setText("$"+ money.format(market.priceOranges));
+        priceBananas.setText("$"+ money.format(market.priceBananas));
+        priceGrapes.setText("$"+ money.format(market.priceGrapes));
+    }
 
     public void buyApples(ActionEvent actionEvent){
-        traderJoe.invApples++;
-        traderJoe.cash -= fruitMarket.priceApples;
-        invApples.setText(String.valueOf(traderJoe.invApples));
-        traderCash.setText(String.valueOf(traderJoe.cash));
-        feedbackText.setText("APPLE(S) PURCHASED");
+        trader.invApples++;
+        trader.cash -= market.priceApples;
+        textApples.setText(String.valueOf(trader.invApples));
+        textCash.setText("$" + money.format(trader.cash));
+        feedbackText.setText("Apple Purchased for $"+money.format(market.priceApples));
     }
-//    public void clickOranges(ActionEvent actionEvent){
-//        countOranges++;
-//        updateBoxes();
-//        feedbackText.setText(countOranges + " " + "ORANGE(S) PURCHASED");
-//    }
+
+    public void buyOranges(ActionEvent actionEvent){
+        trader.invOranges++;
+        trader.cash -= market.priceOranges;
+        textOranges.setText(String.valueOf(trader.invOranges));
+        textCash.setText("$" + money.format(trader.cash));
+        feedbackText.setText("Orange Purchased for $"+money.format(market.priceOranges));
+    }
 //
 //    public void clickBananas(ActionEvent actionEvent){
 //        countBananas++;
@@ -81,16 +95,18 @@ public class Controller implements Initializable{
 //        feedbackText.setText(countGrapes + " " + "GRAPE(S) PURCHASED");
 //    }
 
-//    public void sellApples(ActionEvent actionEvent){
-//        if(countApples > 0){
-//            countApples--;
-//            updateBoxes();
-//            feedbackText.setText("SALE SUCCESSFUL");
-//        } else {
-//            feedbackText.setText("ERROR. CAN'T SELL MORE THAN YOU HAVE." );
-//        }
-//
-//    }
+    public void sellApples(ActionEvent actionEvent){
+        if(trader.invApples > 0){
+            trader.invApples--;
+            trader.cash += market.priceApples;
+            textApples.setText(String.valueOf(trader.invApples));
+            textCash.setText("$" + money.format(trader.cash));
+            feedbackText.setText("Orange sold for $" + money.format(market.priceApples));
+        } else {
+            feedbackText.setText("You don't have enough oranges to sell on the market.");
+        }
+
+    }
 //    public void sellOranges(ActionEvent actionEvent){
 //        if(countOranges > 0){
 //            countOranges--;

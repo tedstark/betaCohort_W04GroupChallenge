@@ -1,26 +1,32 @@
 package sample;
 
+import java.text.DecimalFormat;
+import java.text.Format;
 import java.util.Random;
 
 public class Market {
-    public int priceApples;
-    public int priceOranges;
-    public int priceBananas;
-    public int priceGrapes;
-    public int minPrice;
-    public int maxPrice;
-    public int minSwing;
-    public int maxSwing;
-    public int startPrice;
+    public double priceApples;
+    public double priceOranges;
+    public double priceBananas;
+    public double priceGrapes;
+    public int randMin = 1; //cents
+    public int randMax = 999; //cents
+    public int randUpdateMin = 1;//cents
+    public int randUpdateMax = 50;//cents
+    public int startPrice=350;
 
-    public Market(int priceApples, int priceOranges, int priceBananas, int priceGrapes) {
-        this.priceApples = priceApples;
-        this.priceOranges = priceOranges;
-        this.priceBananas = priceBananas;
-        this.priceGrapes = priceGrapes;
+    Random randPrice = new Random();
+    DecimalFormat money = new DecimalFormat("0.00");
+
+    public Market() {
+        this.priceApples = (randPrice.nextInt(startPrice))/100.0;
+        this.priceOranges = (randPrice.nextInt(startPrice))/100.0;
+        this.priceBananas = (randPrice.nextInt(startPrice))/100.0;
+        this.priceGrapes = (randPrice.nextInt(startPrice))/100.0;
+
     }
 
-    public int getPriceApples() {
+    public double getPriceApples() {
         return priceApples;
     }
 
@@ -28,7 +34,7 @@ public class Market {
         this.priceApples = priceApples;
     }
 
-    public int getPriceOranges() {
+    public double getPriceOranges() {
         return priceOranges;
     }
 
@@ -36,7 +42,7 @@ public class Market {
         this.priceOranges = priceOranges;
     }
 
-    public int getPriceBananas() {
+    public double getPriceBananas() {
         return priceBananas;
     }
 
@@ -44,23 +50,11 @@ public class Market {
         this.priceBananas = priceBananas;
     }
 
-    public int getPriceGrapes() {
+    public double getPriceGrapes() {
         return priceGrapes;
     }
 
     public void setPriceGrapes(int priceGrapes) {
         this.priceGrapes = priceGrapes;
     }
-
-    Random randPrice = new Random();
-
-//    public int priceRoll() {
-//        maxPrice=999;
-//        minPrice=1;
-//        maxSwing=50;
-//        minSwing=1;
-//        price = randPrice.nextInt((maxPrice)+ minPrice);
-//        return price;
-//    }
-
 }
