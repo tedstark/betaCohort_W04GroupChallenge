@@ -49,7 +49,6 @@ public class Market {
     public double getPriceApples() {
         return priceApples;
     }
-
     public void setPriceApples(int priceApples) {
         this.priceApples = priceApples;
     }
@@ -57,7 +56,6 @@ public class Market {
     public double getPriceOranges() {
         return priceOranges;
     }
-
     public void setPriceOranges(int priceOranges) {
         this.priceOranges = priceOranges;
     }
@@ -65,7 +63,6 @@ public class Market {
     public double getPriceBananas() {
         return priceBananas;
     }
-
     public void setPriceBananas(int priceBananas) {
         this.priceBananas = priceBananas;
     }
@@ -73,7 +70,6 @@ public class Market {
     public double getPriceGrapes() {
         return priceGrapes;
     }
-
     public void setPriceGrapes(int priceGrapes) {
         this.priceGrapes = priceGrapes;
     }
