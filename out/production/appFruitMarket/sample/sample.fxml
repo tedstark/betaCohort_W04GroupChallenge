@@ -179,13 +179,13 @@
             <Button onAction="#buyApples" fx:id="btnBuyApples" text="Buy Apples" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button onAction="#buyOranges" text="Buy Oranges" />
+            <Button onAction="#buyOranges" fx:id="btnBuyOranges" text="Buy Oranges" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button fx:id="btnBuyBananas" text="Buy Bananas" />
+            <Button onAction="#buyBananas" fx:id="btnBuyBananas" text="Buy Bananas" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button fx:id="btnBuyGrapes" text="Buy Grapes" />
+            <Button onAction="#buyGrapes" fx:id="btnBuyGrapes" text="Buy Grapes" />
         </VBox>
     </HBox>
 
@@ -194,13 +194,13 @@
             <Button onAction="#sellApples" fx:id="btnSellApples" text="Sell Apples" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button fx:id="btnSellOranges" text="Sell Oranges" />
+            <Button onAction="#sellOranges" fx:id="btnSellOranges" text="Sell Oranges" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button fx:id="btnSellBananas" text="Sell Bananas" />
+            <Button onAction="#sellBananas" fx:id="btnSellBananas" text="Sell Bananas" />
         </VBox>
         <VBox alignment="TOP_CENTER" prefWidth="100.0">
-            <Button fx:id="btnSellGrapes" text="Sell Grapes" />
+            <Button onAction="#sellGrapes" fx:id="btnSellGrapes" text="Sell Grapes" />
         </VBox>
     </HBox>
 

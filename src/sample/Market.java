@@ -13,17 +13,37 @@ public class Market {
     public int randMax = 999; //cents
     public int randUpdateMin = 1;//cents
     public int randUpdateMax = 50;//cents
-    public int startPrice=350;
+    public double startPrice=1.5;
 
     Random randPrice = new Random();
     DecimalFormat money = new DecimalFormat("0.00");
 
     public Market() {
-        this.priceApples = (randPrice.nextInt(startPrice))/100.0;
-        this.priceOranges = (randPrice.nextInt(startPrice))/100.0;
-        this.priceBananas = (randPrice.nextInt(startPrice))/100.0;
-        this.priceGrapes = (randPrice.nextInt(startPrice))/100.0;
-
+        this.priceApples = updatePrice(startPrice);
+        this.priceOranges = updatePrice(startPrice);
+        this.priceBananas = updatePrice(startPrice);
+        this.priceGrapes = updatePrice(startPrice);
+    }
+    public void updateAllPrices() {
+        this.priceApples = updatePrice(this.priceApples);
+        this.priceOranges = updatePrice(this.priceOranges);
+        this.priceBananas = updatePrice(this.priceBananas);
+        this.priceGrapes = updatePrice(this.priceGrapes);
+    }
+    public double updatePrice(double currentPrice) {
+        double newPrice = currentPrice;
+        double priceChange = (randPrice.nextInt(randUpdateMax)/100.0);
+        int signOfChange = randPrice.nextInt(2)+1;
+        if (signOfChange == 2) {
+            priceChange = -priceChange;
+        }
+        newPrice += priceChange;
+        if (newPrice < 0.50){
+            newPrice=0.50;
+        } else if (newPrice >9.99){
+            newPrice=9.99;
+        }
+        return newPrice;
     }
 
     public double getPriceApples() {

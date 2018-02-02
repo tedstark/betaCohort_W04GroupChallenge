@@ -13,7 +13,6 @@ public class Player {
         this.invOranges = invOranges;
         this.invBananas = invBananas;
         this.invGrapes = invGrapes;
-
     }
 
     public double getCash() {
