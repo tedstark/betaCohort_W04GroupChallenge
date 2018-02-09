@@ -74,6 +74,7 @@ public class Controller implements Initializable{
         trader = new Player(startingCash,startingInv,startingInv,startingInv,startingInv);
         market = new Market();
         setTextCash();
+        System.out.println();
         setPrices();
         tickTock.schedule(tickTockTask, 5000L,5000L);
     }
